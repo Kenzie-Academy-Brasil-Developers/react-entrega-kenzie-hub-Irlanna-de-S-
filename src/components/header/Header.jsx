@@ -1,12 +1,14 @@
-import React from 'react'
+import React from "react";
+
+import StyledHeader from "./index.js";
 
 const Header = ({children}) => {
   return (
-   <header>
-    <img src="./kenzieHub-Logo.png" alt="Logo KenzieHub" />
-    <button>{children}</button>
-   </header>
-  )
-}
+    <StyledHeader>
+      <img src="./kenzieHub-Logo.png" alt="Logo KenzieHub" />
+      {children}
+    </StyledHeader>
+  );
+};
 
-export default Header
+export default Header;
