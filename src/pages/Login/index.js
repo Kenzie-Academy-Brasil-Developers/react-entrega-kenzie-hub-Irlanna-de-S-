@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 
 export const StyledLogin = styled.div`
+  font-family: 'Inter';
   height: 90vh;
   background-color: var(--gray-4);
 
@@ -65,6 +66,8 @@ export const StyledLogin = styled.div`
       border: 1.2182px solid var(--Color-primary);
       border-radius: 4.06066px;
       margin-top: 40px;
+      color: #FFFFFF;
+;
     }
     span {
       font-style: normal;

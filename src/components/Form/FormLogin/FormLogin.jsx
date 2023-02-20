@@ -1,15 +1,29 @@
 import React from "react";
-import Button from "../../Button/Button";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import api from "../../../services/Api";
 import { useNavigate } from "react-router-dom";
 import { StyledLink } from "../../../pages/Login/index";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
 
 const FormLogin = ({ setUser }) => {
-  const { register, handleSubmit } = useForm();
+
+  const schema = yup
+    .object({
+      email: yup
+        .string()
+        .required("Campo e-mail é obrigatório."),
+      password: yup
+        .string()
+        .required("Campo senha é obrigatório"),
+    })
+    .required();
+
+  const { register, handleSubmit, formState: { errors }, } = useForm({ resolver: yupResolver(schema) });
   const navigate = useNavigate();
+
 
   const User = async (data) => {
     try {
@@ -28,22 +42,24 @@ const FormLogin = ({ setUser }) => {
       <h1>Login</h1>
 
       <fieldset>
-        <label htmlFor="name">Email</label>
+        <label htmlFor="email">Email</label>
         <input
           type="email"
           id="email"
           {...register("email")}
           placeholder="samuel@kenzie.com.br"
         />
+        <span>{errors.email?.message}</span>
       </fieldset>
       <fieldset>
-        <label htmlFor="name">Senha</label>
+        <label htmlFor="password">Senha</label>
         <input
           type="password"
           id="password"
           {...register("password")}
           placeholder="●●●●●●●●●●●●●"
         />
+        <span>{errors.password?.message}</span>
       </fieldset>
       <button>Entrar</button>
       <span>Ainda não possui uma conta?</span>

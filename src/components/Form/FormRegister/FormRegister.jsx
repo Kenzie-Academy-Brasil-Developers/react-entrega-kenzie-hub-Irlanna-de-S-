@@ -43,14 +43,10 @@ const FormRegister = () => {
   const {
     register,
     handleSubmit,
-    setValue,
     formState: { errors },
   } = useForm({ resolver: yupResolver(schema) });
   const navigate = useNavigate();
   
-  const handleModuleChange = (event) => {
-    setValue("course_module", event.target.value);
-  };
 
   const newUser = async (data) => {
     try {
@@ -128,7 +124,6 @@ const FormRegister = () => {
         <label htmlFor="course_module">Selecionar módulo:</label>
         <select
           {...register("course_module")} 
-          onChange={handleModuleChange} 
         >
           <option value="Primeiro Módulo">
             Primeiro Módulo - Introdução ao Frontend

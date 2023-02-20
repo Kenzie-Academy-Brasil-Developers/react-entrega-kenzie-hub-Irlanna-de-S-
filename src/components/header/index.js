@@ -34,6 +34,15 @@ const StyledHeader = styled.header`
     width: 368px;
     
   }
+
+  @media (min-width: 768px) {
+    width: 538px;
+    
+  }
+  @media (min-width: 1000px) {
+    width: 795px;
+    
+  }
 `;
 
 export default StyledHeader;
