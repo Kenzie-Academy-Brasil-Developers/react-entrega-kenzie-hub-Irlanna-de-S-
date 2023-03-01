@@ -2,23 +2,27 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 export const StyledDashboard = styled.main`
-  .loading{
-    width:100%;
-    height:500px;
-    margin:0 auto;
-    display:flex;justify-content: center;
+  .loading {
+    width: 100%;
+    height: 500px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
   }
   .userInformation {
-    width: 100%;
-    margin-top: 30px;
+    width: 90%;
+    margin-top: 20px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: flex-start;
     padding: 12px;
     gap: 10px;
+    margin:0 auto;
+    margin-top: 30px;
     border: 1px solid #212529;
+    
   }
   h3 {
     font-family: "Inter";
@@ -39,16 +43,17 @@ export const StyledDashboard = styled.main`
     color: #868e96;
   }
 
-  .maintenanceInformation {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 12px;
-    gap: 10px;
-    align-items: center;
-    width: 90%;
-    margin: 0 auto;
+  .tecnologiesRegister {
+    width: 90%;    
+    display:flex;
+    justify-content:space-between;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 18px;
+    color:#F8F9FA;
+    margin:0 auto;
     margin-top: 30px;
   }
 
@@ -71,9 +76,11 @@ export const StyledDashboard = styled.main`
   }
   @media (min-width: 767px) {
     .userInformation {
+      
       display: flex;
+      align-items: baseline;
       flex-direction: row;
-      justify-content: space-around;
+      justify-content: space-between;
       align-items: center;
       height: 50px;
     }
@@ -85,6 +92,7 @@ export const StyledLinkDashboard = styled(Link)`
   border-radius: 4px;
   padding: 10px 16.2426px;
   color: var(--grey-0);
+  font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 0.6rem;

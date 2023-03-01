@@ -8,6 +8,7 @@ export const StyledRegister = styled.div`
     margin-top: 10px;
     font-family: "Inter";
     font-style: normal;
+    font-family: "Inter", sans-serif;
     font-weight: var(--font-weight-700);
     font-size: 0.899rem;
     line-height: 22px;
@@ -15,7 +16,7 @@ export const StyledRegister = styled.div`
   }
 
   p {
-    font-family: var(--fonte-body);
+    font-family: "Inter", sans-serif;
     font-style: normal;
     font-weight: var(--font-weight-400);
     font-size: 0.6rem;
@@ -27,6 +28,7 @@ export const StyledRegister = styled.div`
     display: block;
     margin-bottom: 11px;
     margin-top: 10px;
+    font-family: "Inter", sans-serif;
     font-style: normal;
     font-weight: var(--font-weight-400);
     font-size: 0.609rem;
@@ -105,6 +107,7 @@ export const StyledLinkRegister = styled(Link)`
   border-radius: 4px;
   padding: 10px 16.2426px;
   color: var(--grey-0);
+  font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 0.6rem;

@@ -1,15 +1,14 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-
 export const StyledLogin = styled.div`
-  font-family: 'Inter';
+  font-family: "Inter";
   height: 90vh;
   background-color: var(--gray-4);
 
   img {
     width: 114px;
-    height:20px;
+    height: 20px;
   }
 
   form {
@@ -55,7 +54,7 @@ export const StyledLogin = styled.div`
         border: 0.9772px solid var(--grey-0);
         border-radius: 3.20867px;
         height: 38.5px;
-        color:var(--grey-0);
+        color: var(--grey-0);
       }
     }
 
@@ -66,8 +65,7 @@ export const StyledLogin = styled.div`
       border: 1.2182px solid var(--Color-primary);
       border-radius: 4.06066px;
       margin-top: 40px;
-      color: #FFFFFF;
-;
+      color: #ffffff;
     }
     span {
       font-style: normal;

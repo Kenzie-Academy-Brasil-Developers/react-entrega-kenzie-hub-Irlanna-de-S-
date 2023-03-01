@@ -1,46 +1,30 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
-import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import api from "../../../services/Api";
-import { useNavigate } from "react-router-dom";
 import { StyledLink } from "../../../pages/Login/index";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import { UserContext } from "../../../providers/UserContext";
 
-const FormLogin = ({ setUser }) => {
-
+const FormLogin = () => {
   const schema = yup
     .object({
-      email: yup
-        .string()
-        .required("Campo e-mail é obrigatório."),
-      password: yup
-        .string()
-        .required("Campo senha é obrigatório"),
+      email: yup.string().required("Campo e-mail é obrigatório."),
+      password: yup.string().required("Campo senha é obrigatório"),
     })
     .required();
 
-  const { register, handleSubmit, formState: { errors }, } = useForm({ resolver: yupResolver(schema) });
-  const navigate = useNavigate();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({ resolver: yupResolver(schema) });
 
+  const { User } = useContext(UserContext);
 
-  const User = async (data) => {
-    try {
-      const response = await api.post("/sessions", data);
-      localStorage.setItem("@TOKEN", response.data.token);
-      setUser(response.data.user);
-      navigate("/dashboard");
-      toast.success(`Usúario logado com sucesso`);
-    } catch (error) {
-      console.log(error);
-      toast.error("Email ou senha inválido.");
-    }
-  };
   return (
     <form onSubmit={handleSubmit(User)}>
       <h1>Login</h1>
-
       <fieldset>
         <label htmlFor="email">Email</label>
         <input

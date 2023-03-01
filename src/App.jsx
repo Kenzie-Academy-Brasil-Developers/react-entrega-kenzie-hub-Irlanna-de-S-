@@ -3,13 +3,10 @@ import { ToastContainer } from "react-toastify";
 import AppRoutes from "./Routes";
 
 function App() {
-  const [user, setUser]= useState('');
-  const [loading, setLoading] = useState(false);
-  
 
   return (
     <>
-      <AppRoutes user={user} setUser={setUser} loading={loading} setLoading={setLoading} />
+      <AppRoutes />
 
       <ToastContainer
         position="top-right"

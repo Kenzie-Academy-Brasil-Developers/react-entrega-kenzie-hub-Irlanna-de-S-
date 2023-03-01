@@ -1,36 +1,12 @@
-import React, { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
 import { StyledDashboard, StyledLinkDashboard } from ".";
-import api from "../../services/Api";
 import Header from "../../components/Header/Header";
+import NewTechModal from "../../components/NewTechsModal/NewTechModal";
+import { UserContext } from "../../providers/UserContext";
 
-const Dashboard = ({ user, setUser, loading, setLoading }) => {
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    const fetchUser = async () => {
-      try {
-        setLoading(true);
-        const token = localStorage.getItem("@TOKEN");
-        api.defaults.headers.authorization = `Bearer ${token}`;
-        const response = await api.get("/profile");
-        setUser(response.data);
-      } catch (error) {
-        console.log(error);
-        navigate("/");
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchUser();
-  }, []);
-
-  const handleLogout = () => {
-    localStorage.removeItem("@TOKEN");
-    navigate("/");
-  };
-
+const Dashboard = () => {
+  const [openModal, setOpenModal] = useState(false);
+  const { user, loading, handleLogout } = useContext(UserContext);
   return (
     <>
       <Header>
@@ -49,13 +25,11 @@ const Dashboard = ({ user, setUser, loading, setLoading }) => {
               <h3>Olá, {user.name}</h3>
               <p className="course">{user.course_module}</p>
             </div>
-            <div className="maintenanceInformation">
-              <h1>Que pena! Estamos em desenvolvimento :(</h1>
-              <p>
-                Nossa aplicação está em desenvolvimento, em breve teremos
-                novidades
-              </p>
+            <div className="tecnologiesRegister">
+              <h2>Tecnologias</h2>
+              <button onClick={() => setOpenModal(true)}>+</button>
             </div>
+            <NewTechModal isOpen={openModal} setOpenModal={setOpenModal} />
           </>
         )}
       </StyledDashboard>

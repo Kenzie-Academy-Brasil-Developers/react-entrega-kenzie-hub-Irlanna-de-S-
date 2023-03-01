@@ -1,10 +1,9 @@
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
-import api from "../../../services/Api";
-import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import { useContext } from "react";
+import { UserContext } from "../../../providers/UserContext";
 
 const schema = yup
   .object({
@@ -45,19 +44,9 @@ const FormRegister = () => {
     handleSubmit,
     formState: { errors },
   } = useForm({ resolver: yupResolver(schema) });
-  const navigate = useNavigate();
-  
 
-  const newUser = async (data) => {
-    try {
-      await api.post("/users", data);
-      navigate("/");
-      toast.success("Usuário cadastrado com sucesso!");
-    } catch (error) {
-      console.log(error);
-      toast.error("Por favor, verifique os dados informados.");
-    }
-  };
+  const { newUser } = useContext(UserContext);
+
   return (
     <form onSubmit={handleSubmit(newUser)}>
       <h1>Crie sua conta</h1>
@@ -122,9 +111,7 @@ const FormRegister = () => {
 
       <fieldset>
         <label htmlFor="course_module">Selecionar módulo:</label>
-        <select
-          {...register("course_module")} 
-        >
+        <select {...register("course_module")}>
           <option value="Primeiro Módulo">
             Primeiro Módulo - Introdução ao Frontend
           </option>
@@ -134,7 +121,9 @@ const FormRegister = () => {
           <option value="Terceiro Módulo">
             Terceiro Módulo - Introdução ao Backend
           </option>
-          <option value="Quarto Módulo">Quarto Módulo - Backend Avançado</option>
+          <option value="Quarto Módulo">
+            Quarto Módulo - Backend Avançado
+          </option>
         </select>
         <p>{errors.course_module?.message}</p>
       </fieldset>
