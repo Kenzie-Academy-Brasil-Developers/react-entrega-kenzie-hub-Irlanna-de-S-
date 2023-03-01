@@ -21,12 +21,12 @@ const NewTechModal = ({ isOpen, setOpenModal }) => {
       <NewTechStyled>
         <div className="modalContainer">
           <div className="headerModal">
-            <h3>Cadastrar Tecnologia</h3>
+            <h3>Tecnologia Detalhes</h3>
             <button onClick={handleCloseModal}>X</button>
           </div>
           <form onSubmit={handleSubmit(onSubmit)}>
             <fieldset>
-              <label htmlFor="title">Nome</label>
+              <label htmlFor="title">Nome do projeto</label>
               <input type="text" id="title" {...register("title")} />
               <span>{errors.email?.message}</span>
             </fieldset>
@@ -39,6 +39,7 @@ const NewTechModal = ({ isOpen, setOpenModal }) => {
             </select>
 
             <button type="submit">Enviar</button>
+            <button type="submit">Excluir</button>
           </form>
         </div>
       </NewTechStyled>

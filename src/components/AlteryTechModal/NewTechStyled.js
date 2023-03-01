@@ -42,7 +42,7 @@ export const NewTechStyled = styled.div`
 
     input {
       background: #343b41;
-      font-family: "Inter";
+      font-family: 'Inter';
       font-style: normal;
       font-weight: 400;
       font-size: 16.2426px;
@@ -61,6 +61,7 @@ export const NewTechStyled = styled.div`
       font-style: normal;
       font-weight: 400;
       font-size: 12.182px;
+     
     }
 
     select {
@@ -79,7 +80,7 @@ export const NewTechStyled = styled.div`
     }
     option {
       color: #f8f9fa;
-      font-family: "Inter";
+      font-family: 'Inter';
       font-style: normal;
       font-weight: 400;
       font-size: 16.2426px;
@@ -90,12 +91,12 @@ export const NewTechStyled = styled.div`
       padding: 0px 22.3336px;
       gap: 10.15px;
       width: 100%;
-      height: 48px;
-      background: #ff577f;
+      height: 48px;  
+      background: #ff577f;     
       border: 1.2182px solid #ff577f;
       border-radius: 4.06066px;
       margin-top: 30px;
-      font-family: "Inter";
+      font-family: 'Inter';
       font-style: normal;
       font-weight: 500;
       font-size: 16px;
@@ -111,10 +112,6 @@ export const NewTechStyled = styled.div`
   @media (min-width: 900px) {
     .modalContainer {
       width: 30%;
-    }
-
-    .headerModal {
-      justify-content: space-between;
     }
   }
 `;
